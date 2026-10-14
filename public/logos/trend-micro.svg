@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <!-- PLACEHOLDER: replace this file with the official Trend Micro logo (keep the filename, or update data/technologyEcosystem.ts) -->
+  <rect x="1" y="1" width="198" height="58" rx="8" fill="none" stroke="#5a6680" stroke-dasharray="4 4"/>
+  <rect x="16" y="19" width="22" height="22" rx="5" fill="none" stroke="#8792a8" stroke-width="1.5"/>
+  <path d="M21 35l5-6 4 4 3-3 3 5" fill="none" stroke="#8792a8" stroke-width="1.5"/>
+  <text x="50" y="28" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#b9c2d6">Trend Micro</text>
+  <text x="50" y="43" font-family="Inter, Arial, sans-serif" font-size="9" letter-spacing="1" fill="#6f7a91">LOGO PLACEHOLDER</text>
+</svg>

@@ -1,0 +1,65 @@
+.scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Scroll length of the 01 → 02 transition */
+.track {
+  position: relative;
+  height: 360vh;
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.labels {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.next {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--gutter) 0 var(--content-left);
+  border-top: 1px solid var(--line);
+  color: var(--ink-faint);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+}
+
+@media (max-width: 767px) {
+  .track {
+    height: 300vh;
+  }
+  .labels :global([data-label]) {
+    width: 150px;
+  }
+  .labels :global([data-label] > span:last-child > span:last-child) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    height: 220vh;
+  }
+}

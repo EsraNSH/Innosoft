@@ -1,0 +1,123 @@
+/* Shared typography + section rhythm for the About page */
+
+.section {
+  position: relative;
+  padding: clamp(96px, 13vh, 160px) var(--gutter) clamp(96px, 13vh, 160px) var(--content-left);
+}
+
+.eyebrow {
+  margin: 0 0 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+}
+
+.h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(32px, 3.3vw, 56px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.h2 > span {
+  display: block;
+}
+
+.accent {
+  background: linear-gradient(100deg, #2f74ff 0%, #45a8ff 55%, #45d2ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lead {
+  margin: 22px 0 0;
+  max-width: 520px;
+  font-size: clamp(15px, 1.1vw, 18px);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.body {
+  margin: 16px 0 0;
+  max-width: 520px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-muted);
+}
+
+/* Text link with arrow (Discover More / View All Projects style) */
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.textLink svg {
+  transition: transform 0.45s var(--ease-out);
+}
+
+.textLink:not([data-pending]):hover svg {
+  transform: translate(3px, -3px);
+}
+
+.textLink[data-pending] {
+  color: var(--ink-muted);
+}
+
+.primaryBtn {
+  height: 52px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px -14px rgba(31, 102, 255, 0.9);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.primaryBtn svg {
+  transition: transform 0.45s var(--ease-out);
+}
+
+.primaryBtn:not([data-pending]):hover {
+  background: var(--blue-bright);
+  box-shadow: 0 12px 36px -12px rgba(61, 130, 255, 1);
+}
+
+.primaryBtn:not([data-pending]):hover svg {
+  transform: translateX(4px);
+}
+
+.primaryBtn[data-pending] {
+  background: rgba(31, 102, 255, 0.35);
+  box-shadow: none;
+}
+
+.pendingNote {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 80px var(--gutter) 80px calc(var(--rail) + var(--gutter));
+  }
+  .h2 {
+    font-size: clamp(28px, 8.4vw, 38px);
+  }
+}

@@ -1,0 +1,44 @@
+.section {
+  overflow-x: clip;
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+.viewAll::before {
+  content: "";
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(61, 130, 255, 0.7));
+}
+
+.stageWrap {
+  padding-bottom: 0;
+  /* Never let side cards slide under the chapter rail */
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+@media (max-width: 1023px) {
+  .stageWrap {
+    padding-bottom: 72px;
+  }
+}
+
+@media (max-width: 767px) {
+  .viewAll::before {
+    width: 40px;
+  }
+}

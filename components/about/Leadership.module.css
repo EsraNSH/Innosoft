@@ -1,0 +1,76 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+  margin-top: clamp(48px, 7vh, 72px);
+}
+
+.portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-width: 440px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(180deg, #0c1428, #070b16);
+}
+
+.portrait img {
+  object-fit: cover;
+}
+
+.silhouette {
+  position: absolute;
+  inset: 18% 18% 0;
+  color: rgba(120, 150, 210, 0.16);
+}
+
+.portraitNote {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  background: rgba(5, 7, 13, 0.75);
+  border: 1px solid var(--line-strong);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 2.8vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.role {
+  margin: 10px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+}
+
+.bio {
+  margin: 24px 0 0;
+  max-width: 480px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+.profile {
+  margin-top: 28px;
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

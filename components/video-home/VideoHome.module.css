@@ -1,0 +1,106 @@
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Each chapter is a plain full-height block in normal flow; the existing
+   section components position their content inside it. */
+.chapter {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* Viewport-sized frame for each chapter's content */
+.hold {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* Scrub version: each chapter is taller than the screen and its content stays
+   put (sticky) while the extra scroll advances the video. */
+.scrub .chapter {
+  min-height: 190vh;
+  min-height: 190svh;
+}
+
+.scrub .hold {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+}
+
+@media (max-width: 767px) {
+  .scrub .chapter {
+    min-height: 170svh;
+  }
+}
+
+/* Section 02 pillars (DISCOVER / DESIGN / BUILD) as a static column
+   instead of labels anchored to the WebGL orbits. */
+.pillars {
+  position: absolute;
+  right: calc(var(--gutter) + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 260px;
+}
+
+.pillars > * {
+  position: relative !important;
+  height: 40px;
+}
+
+/* Pillars float over the brightest part of the video: lift their copy off it */
+.pillars {
+  text-shadow: 0 1px 2px rgba(5, 7, 13, 0.9), 0 0 18px rgba(5, 7, 13, 0.85);
+}
+
+.pillars :global([data-label] span span:last-child) {
+  color: var(--ink-soft);
+}
+
+/* Footer stays readable on its own solid background */
+.footerWrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* Leave room under the footer for the fixed pause button */
+.footerWrap > footer {
+  padding-bottom: 88px;
+}
+
+@media (max-width: 1023px) {
+  .pillars {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: auto;
+    margin: 0 var(--gutter) 0 var(--content-left);
+    padding-bottom: 96px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px 260px;
+  }
+  .hold:has(.pillars) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 767px) {
+  .pillars {
+    margin-left: calc(var(--rail) + var(--gutter));
+    flex-direction: column;
+    gap: 36px;
+    padding-bottom: 72px;
+  }
+}
