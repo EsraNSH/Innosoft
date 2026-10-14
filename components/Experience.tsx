@@ -78,7 +78,7 @@ export default function Experience() {
   return (
     <div ref={rootRef} className="intro-pending">
       <canvas ref={canvasRef} className={styles.scene} aria-hidden="true" />
-      <Header />
+      <Header extraLink={{ href: "/home-video", label: "Video version" }} />
       <ChapterNavigation onNavigate={navigate} />
 
       <main className={styles.main}>

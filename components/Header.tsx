@@ -4,9 +4,13 @@ import SiteLink from "./SiteLink";
 import { NAV, ROUTES, type NavKey } from "@/lib/site";
 import styles from "./Header.module.css";
 
-type Props = { active?: NavKey };
+type Props = {
+  active?: NavKey;
+  /** Optional page-specific link shown before Contact Us (e.g. the homepage's video version). */
+  extraLink?: { href: string; label: string };
+};
 
-export default function Header({ active }: Props) {
+export default function Header({ active, extraLink }: Props) {
   return (
     <header className={styles.header}>
       <Link href={ROUTES.home} aria-label="Innosoft home">
@@ -25,6 +29,16 @@ export default function Header({ active }: Props) {
         ))}
       </nav>
       <div className={styles.actions}>
+        {extraLink && (
+          <Link href={extraLink.href} className={styles.extra} title={extraLink.label}>
+            <span className={styles.extraIcon} aria-hidden="true">
+              <svg width="8" height="9" viewBox="0 0 8 9" fill="currentColor">
+                <path d="M0 0v9l8-4.5z" />
+              </svg>
+            </span>
+            <span className={styles.extraLabel}>{extraLink.label}</span>
+          </Link>
+        )}
         <SiteLink href={ROUTES.contact} className={styles.contact} pendingLabel="Contact page coming soon">
           Contact Us
         </SiteLink>
