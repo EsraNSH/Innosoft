@@ -6,11 +6,11 @@ import styles from "./Header.module.css";
 
 type Props = {
   active?: NavKey;
-  /** Optional page-specific link shown before Contact Us (e.g. the homepage's video version). */
-  extraLink?: { href: string; label: string };
+  /** Optional page-specific links shown before Contact Us (e.g. the homepage's video versions). */
+  extraLinks?: { href: string; label: string; icon: "play" | "scroll" }[];
 };
 
-export default function Header({ active, extraLink }: Props) {
+export default function Header({ active, extraLinks = [] }: Props) {
   return (
     <header className={styles.header}>
       <Link href={ROUTES.home} aria-label="Innosoft home">
@@ -29,16 +29,23 @@ export default function Header({ active, extraLink }: Props) {
         ))}
       </nav>
       <div className={styles.actions}>
-        {extraLink && (
-          <Link href={extraLink.href} className={styles.extra} title={extraLink.label}>
+        {extraLinks.map((l) => (
+          <Link key={l.href} href={l.href} className={styles.extra} title={l.label}>
             <span className={styles.extraIcon} aria-hidden="true">
-              <svg width="8" height="9" viewBox="0 0 8 9" fill="currentColor">
-                <path d="M0 0v9l8-4.5z" />
-              </svg>
+              {l.icon === "play" ? (
+                <svg width="8" height="9" viewBox="0 0 8 9" fill="currentColor">
+                  <path d="M0 0v9l8-4.5z" />
+                </svg>
+              ) : (
+                <svg width="10" height="13" viewBox="0 0 10 13" fill="none" stroke="currentColor" strokeWidth="1.3">
+                  <rect x="0.65" y="0.65" width="8.7" height="11.7" rx="4.35" />
+                  <path d="M5 3v2.6" strokeLinecap="round" />
+                </svg>
+              )}
             </span>
-            <span className={styles.extraLabel}>{extraLink.label}</span>
+            <span className={styles.extraLabel}>{l.label}</span>
           </Link>
-        )}
+        ))}
         <SiteLink href={ROUTES.contact} className={styles.contact} pendingLabel="Contact page coming soon">
           Contact Us
         </SiteLink>
